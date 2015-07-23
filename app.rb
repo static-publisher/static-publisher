@@ -11,7 +11,7 @@ helpers AuthHelpers
 configure do
   set :db, SimpleDatabase.new(ENV['MONGOLAB_URI'])
   settings.db.create_if_empty(:user, name: 'admin', password: 'admin')
-  settings.db.create_if_empty(:data, ConfigFiles.seed)
+  settings.db.create_if_empty(:config, ConfigFiles.seed)
   set :schema, ConfigFiles.schema.to_json
   set :form, ConfigFiles.form.to_json
   `git config --global user.name "Static Publisher"` if `git config user.name`.empty?
@@ -29,9 +29,9 @@ post '/user' do
   redirect '/admin'
 end
 
-post '/data' do
+post '/config' do
   protected!
-  settings.db.set(:data, JSON.parse(request.body.read))
+  settings.db.set(:config, JSON.parse(request.body.read))
   halt 200
 end
 
@@ -39,7 +39,7 @@ post '*' do |path|
   request.body.rewind
   body = request.body.read
   gh_signature = request.env['HTTP_X_HUB_SIGNATURE']
-  sequences = settings.db[:data][:sequences]
+  sequences = settings.db[:config][:sequences]
   indexes = SequenceMatcher.matching_indexes(sequences, path, body, gh_signature)
 
   if indexes.any?

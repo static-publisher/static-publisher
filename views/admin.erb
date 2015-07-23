@@ -31,7 +31,7 @@
       $('.container-fluid form').jsonForm({
         schema: <%= settings.schema %>,
         form: <%= settings.form %>,
-        value: <%= settings.db[:data].to_json.gsub( '</', '<\/' ) %>,
+        value: <%= settings.db[:config].to_json.gsub( '</', '<\/' ) %>,
         onSubmit: submit
       });
     </script>
