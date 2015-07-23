@@ -5,6 +5,9 @@ RSpec::Core::RakeTask.new(:spec) do
 	f = File.expand_path('../tmp/fakes3_root', __FILE__)
 	FileUtils.mkdir_p(f)
 
+  `git config --global user.name "Static Publisher"` if `git config user.name`.empty?
+  `git config --global user.email "static-publisher@example.com"` if `git config user.email`.empty?
+
   if Gem.win_platform?
     system "start fakes3 -r #{f} -p 4567"
   else
