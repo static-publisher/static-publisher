@@ -1,0 +1,6 @@
+{
+  "name": "Static Publisher",
+  "description": "Static Publisher listens for hooks, compile static sites and publishes them.",
+  "keywords": ["jekyll", "static site", "hook"],
+  "addons": ["mongolab:sandbox"]
+}

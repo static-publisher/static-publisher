@@ -1,0 +1,54 @@
+hooks:
+  type: array
+  items:
+    type: object
+    properties:
+      route:
+        type: string
+        title: Route
+      gh_secret:
+        type: string
+        title: GitHub Secret (optional)
+      src_repo:
+        type: string
+        title: Git Repository
+      src_branch:
+        type: string
+        title: Git Branch
+        default: master
+      gen_type:
+        type: string
+        title: Type
+        enum: [jekyll]
+      s3:
+        type: object
+        properties:
+          access_key_id:
+            type: string
+            title: Access Key ID
+          secret_access_key:
+            type: string
+            title: Secret Access Key
+          bucket:
+            type: string
+            title: Bucket
+          region:
+            type: string
+            title: Region
+            enum:
+              - ''
+              - us-west-1
+              - us-west-2
+              - EU
+              - eu-central-1
+              - ap-southeast-1
+              - ap-northeast-1
+              - ap-southeast-2
+              - sa-east-1
+      dest_repo:
+        type: string
+        title: Repository
+      dest_branch:
+        type: string
+        title: Branch
+        default: gh_pages

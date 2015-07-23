@@ -1,0 +1,39 @@
+- type: tabarray
+  key: hooks
+  items:
+    - type: section
+      legend: 'Hook {{ idx }}'
+      items:
+        - type: fieldset
+          title: Hook
+          items:
+            - 'hooks[].route'
+            - 'hooks[].gh_secret'
+        - type: fieldset
+          title: Source
+          items:
+            - 'hooks[].src_repo'
+            - 'hooks[].src_branch'
+        - type: fieldset
+          title: Generator
+          items:
+            - 'hooks[].gen_type'
+        - type: fieldset
+          title: Destination
+          items:
+            - type: fieldset
+              title: S3
+              expandable: true
+              items:
+                - 'hooks[].s3.access_key_id'
+                - 'hooks[].s3.secret_access_key'
+                - 'hooks[].s3.bucket'
+                - 'hooks[].s3.region'
+            - type: fieldset
+              title: Git
+              expandable: true
+              items:
+                - 'hooks[].dest_repo'
+                - 'hooks[].dest_branch'
+- type: submit
+  title: Update

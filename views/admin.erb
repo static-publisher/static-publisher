@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Static Publisher</title>
+    <link href='/admin/app.css' rel='stylesheet' type='text/css' />
+  </head>
+  <body>
+    <div class='navbar'>
+      <div class='navbar-inner'>
+        <a class='brand' href='/admin'>Static Publisher</a>
+        <button id='show-user-form' class='pull-right btn'>
+          <i class='icon-user'></i>
+        </button>
+        <form id='user-form' class='navbar-form pull-right hide' action='user' method='post'>
+          <input type='text' name='name' placeholder='Username' />
+          <input type='password' name='password' placeholder='Password' />
+          <button class='btn'>Change</button>
+        </form>
+      </div>
+    </div>
+
+    <div class='container-fluid span10 offset1'>
+      <form></form>
+    </div>
+
+    <script src='/admin/app.js'></script>
+    <script>
+      $('.container-fluid form').jsonForm({
+        schema: <%= settings.schema %>,
+        form: <%= settings.form %>,
+        value: <%= settings.db[:data].to_json.gsub( '</', '<\/' ) %>,
+        onSubmit: submit
+      });
+    </script>
+  </body>
+</html>

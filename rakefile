@@ -1,0 +1,15 @@
+require 'rspec/core/rake_task'
+require 'fileutils'
+
+RSpec::Core::RakeTask.new(:spec) do
+	f = File.expand_path('../tmp/fakes3_root', __FILE__)
+	FileUtils.mkdir_p(f)
+
+  if Gem.win_platform?
+    system "start fakes3 -r #{f} -p 4567"
+  else
+    system "fakes3 -r #{f} -p 4567 &"
+  end
+end
+
+task default: :spec

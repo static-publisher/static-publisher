@@ -1,0 +1,14 @@
+.form-actions {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.navbar-form { margin-bottom: 5px; }
+#show-user-form { margin-left: 5px; }
+.btn-primary { margin-left: 120px; }
+.icon-plus-sign { display: none; }
+.tab:hover, .icon-remove:hover { cursor: pointer; }
+label { cursor: inherit; }
+.expandable legend { cursor: pointer; }
+.jsonform select, .jsonform input[type='text'] { width: 95%; }
