@@ -1,5 +1,7 @@
 # Static Publisher
 
+[![Build Status](https://travis-ci.org/static-publisher/static-publisher.svg?branch=master)](https://travis-ci.org/static-publisher/static-publisher)
+
 Static Publisher listens for hooks, compile static sites and publishes them.
 
 ## Admin
