@@ -4,7 +4,7 @@ require 'folders'
 require_relative 'fixtures'
 
 describe S3Publisher do
-  let(:opts) { Fixtures.hook['s3'].merge(proxy: { host: '127.0.0.1', port: '4567' }) }
+  let(:opts) { Fixtures.sequence['s3'].merge(proxy: { host: '127.0.0.1', port: '4567' }) }
   let(:folders) { Folders.new(:compiled) }
   after { folders.clean_up }
 

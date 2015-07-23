@@ -1,8 +1,8 @@
 module Fixtures
   class << self
-    def hook
+    def sequence
       {
-        'route' => '/test-hook',
+        'route' => '/test-route',
         'src_repo' => 'https://github.com/other_user/cool_repo',
         'src_branch' => 'master',
         'gen_type' => 'jekyll',

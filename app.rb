@@ -4,7 +4,7 @@ require 'yaml'
 require_relative 'lib/admin/simple_database'
 require_relative 'lib/admin/auth_helpers'
 require_relative 'lib/admin/config_files'
-require_relative 'lib/hook_matcher'
+require_relative 'lib/sequence_matcher'
 
 helpers AuthHelpers
 
@@ -39,12 +39,12 @@ post '*' do |path|
   request.body.rewind
   body = request.body.read
   gh_signature = request.env['HTTP_X_HUB_SIGNATURE']
-  hooks = settings.db[:data][:hooks]
-  indexes = HookMatcher.matching_indexes(hooks, path, body, gh_signature)
+  sequences = settings.db[:data][:sequences]
+  indexes = SequenceMatcher.matching_indexes(sequences, path, body, gh_signature)
 
   if indexes.any?
-    process_hook = File.expand_path('../bin/process_hook.rb', __FILE__)
-    spawn("ruby #{process_hook} #{indexes.join(' ')}")
+    process_sequence = File.expand_path('../bin/process_sequence.rb', __FILE__)
+    spawn("ruby #{process_sequence} #{indexes.join(' ')}")
     halt 200
   else
     halt 404

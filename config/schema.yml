@@ -1,4 +1,4 @@
-hooks:
+sequences:
   type: array
   items:
     type: object

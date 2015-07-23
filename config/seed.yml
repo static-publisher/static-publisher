@@ -1,1 +1,2 @@
-hooks: []
+sequences:
+  - route: '/my-endpoint'

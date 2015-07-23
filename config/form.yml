@@ -1,23 +1,23 @@
 - type: tabarray
-  key: hooks
+  key: sequences
   items:
     - type: section
-      legend: 'Hook {{ idx }}'
+      legend: 'Sequence {{ idx }}'
       items:
         - type: fieldset
-          title: Hook
+          title: Endpoint
           items:
-            - 'hooks[].route'
-            - 'hooks[].gh_secret'
+            - 'sequences[].route'
+            - 'sequences[].gh_secret'
         - type: fieldset
           title: Source
           items:
-            - 'hooks[].src_repo'
-            - 'hooks[].src_branch'
+            - 'sequences[].src_repo'
+            - 'sequences[].src_branch'
         - type: fieldset
           title: Generator
           items:
-            - 'hooks[].gen_type'
+            - 'sequences[].gen_type'
         - type: fieldset
           title: Destination
           items:
@@ -25,15 +25,15 @@
               title: S3
               expandable: true
               items:
-                - 'hooks[].s3.access_key_id'
-                - 'hooks[].s3.secret_access_key'
-                - 'hooks[].s3.bucket'
-                - 'hooks[].s3.region'
+                - 'sequences[].s3.access_key_id'
+                - 'sequences[].s3.secret_access_key'
+                - 'sequences[].s3.bucket'
+                - 'sequences[].s3.region'
             - type: fieldset
               title: Git
               expandable: true
               items:
-                - 'hooks[].dest_repo'
-                - 'hooks[].dest_branch'
+                - 'sequences[].dest_repo'
+                - 'sequences[].dest_branch'
 - type: submit
   title: Update
