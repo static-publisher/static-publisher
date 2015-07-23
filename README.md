@@ -4,7 +4,7 @@ Static Publisher listens for hooks, compile static sites and publishes them.
 
 ## Admin
 
-![Static Publisher](http://mushishi78.github.io/static-publisher/screenshot.jpg)
+![Static Publisher](http://static-publisher.github.io/static-publisher/screenshot.jpg)
 
 # Deploy
 
@@ -12,7 +12,7 @@ Static Publisher listens for hooks, compile static sites and publishes them.
 
 ## Contributing
 
-1. [Fork it](https://github.com/mushishi78/static-publisher/fork)
+1. [Fork it](https://github.com/static-publisher/static-publisher/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
