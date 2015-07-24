@@ -1,6 +1,6 @@
 {
   "name": "Static Publisher",
-  "description": "Static Publisher provides endpoints to generate static sites and publish them.",
+  "description": "Static Publisher is an automated deployment server for static site generators",
   "keywords": ["jekyll", "static site", "endpoint"],
   "addons": ["mongolab:sandbox"]
 }
