@@ -6,7 +6,7 @@ require_relative 's3_publisher'
 module SequenceProcessor
   class << self
     def process(sequence)
-      puts 'Creating folders...'
+      puts 'Sequence start...'
       folders = Folders.new(:src_clone, :compiled, :dest_clone)
 
       puts 'Cloning source repository...'
@@ -19,10 +19,8 @@ module SequenceProcessor
       S3Publisher.publish(sequence['s3'], folders)
       GitTasks.publish(sequence['dest_repo'], sequence['dest_branch'], folders)
 
-      puts 'Cleaning up....'
       folders.clean_up
-
-      puts "Sequence #{sequence['route']} complete!"
+      puts 'Sequence complete!'
     end
   end
 end
