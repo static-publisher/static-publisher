@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/static-publisher/static-publisher.svg?branch=master)](https://travis-ci.org/static-publisher/static-publisher)
 
-Static Publisher is an automated deployment server for static site generators, such as [Jekyll](http://jekyllrb.com/). It provide endpoints that can be called by webhooks on git hosting site such as GitHub or BitBucket everytime a project is updated. It has an easy to use admin panel for managing multiple projects deployment, it can run plugins without security restrictions and it can publish to an S3 bucket or git repository.
+Static Publisher is an automated deployment server for static site generators, such as [Jekyll](http://jekyllrb.com/). It provides endpoints that can be called by webhooks from git hosting sites such as GitHub or BitBucket everytime a project is updated. It has an easy to use admin panel for managing multiple projects deployment, it can run plugins without security restrictions and it can publish to an S3 bucket or git repository.
 
 ## Installation
 
