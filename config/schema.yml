@@ -6,9 +6,6 @@ sequences:
       route:
         type: string
         title: Route
-      gh_secret:
-        type: string
-        title: GitHub Secret (optional)
       src_repo:
         type: string
         title: Git Repository

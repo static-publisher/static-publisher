@@ -1,4 +1,3 @@
 sequences:
-  - route: '/my-endpoint'
-    src_branch: master
+  - src_branch: master
     dest_branch: gh_pages

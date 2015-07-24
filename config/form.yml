@@ -8,7 +8,6 @@
           title: Endpoint
           items:
             - 'sequences[].route'
-            - 'sequences[].gh_secret'
         - type: fieldset
           title: Source
           items:

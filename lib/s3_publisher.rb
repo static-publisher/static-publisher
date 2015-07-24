@@ -18,7 +18,7 @@ module S3Publisher
     end
 
     def publish?(opts)
-      opts['access_key_id'] && opts['secret_access_key'] && opts['bucket']
+      opts && opts['access_key_id'] && opts['secret_access_key'] && opts['bucket']
     end
 
     def find_or_create_bucket(service, name, region)

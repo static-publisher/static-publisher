@@ -26,6 +26,11 @@ describe S3Publisher do
 
   it 'ignores if s3 opts not given' do
     expect(S3::Service).to_not receive(:new)
-    S3Publisher.publish({}, folders)
+    S3Publisher.publish(nil, folders)
+  end
+
+  it 'ignores if only some s3 opts are given' do
+    expect(S3::Service).to_not receive(:new)
+    S3Publisher.publish({ 'access_key_id' => '1AU6D78E' }, folders)
   end
 end

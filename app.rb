@@ -4,7 +4,6 @@ require 'yaml'
 require_relative 'lib/admin/simple_database'
 require_relative 'lib/admin/auth_helpers'
 require_relative 'lib/admin/config_files'
-require_relative 'lib/sequence_matcher'
 
 helpers AuthHelpers
 
@@ -36,17 +35,6 @@ post '/config' do
 end
 
 post '*' do |path|
-  request.body.rewind
-  body = request.body.read
-  gh_signature = request.env['HTTP_X_HUB_SIGNATURE']
-  sequences = settings.db[:config][:sequences]
-  indexes = SequenceMatcher.matching_indexes(sequences, path, body, gh_signature)
-
-  if indexes.any?
-    process_sequence = File.expand_path('../bin/process_sequence.rb', __FILE__)
-    spawn("ruby #{process_sequence} #{indexes.join(' ')}")
-    halt 200
-  else
-    halt 404
-  end
+  spawn("ruby #{File.expand_path('../bin/static_publisher.rb', __FILE__)} #{path}")
+  halt 200
 end
