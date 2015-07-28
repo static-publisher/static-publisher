@@ -17,7 +17,6 @@ describe S3Publisher do
     *args = folders[:compiled], *args
     FileUtils.mkdir_p(File.join(*args[0..-2]))
     FileUtils.touch(File.join(*args))
-    p Dir.entries(folders[:compiled])
   end
 
   it 'publishes compiled folder to s3 bucket' do
