@@ -27,7 +27,9 @@ module S3Publisher
     end
 
     def upload_files(bucket, folder)
+      p "files(#{folder})"
       files(folder).each do |f|
+        p f
         key = f.sub(folder, '').sub(/^[\/\\]/, '')
         bucket.objects.build(key).tap { |o| o.content = File.read(f) }.save
       end
