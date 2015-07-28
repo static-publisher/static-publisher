@@ -1,4 +1,5 @@
 require 's3'
+require 'mime-types'
 
 module S3Publisher
   class << self
@@ -27,14 +28,24 @@ module S3Publisher
     end
 
     def upload_files(bucket, folder)
-      files(folder).each do |f|
-        key = f.sub(folder, '').sub(/^[\/\\]/, '')
-        bucket.objects.build(key).tap { |o| o.content = File.read(f) }.save
+      files(folder).each do |file|
+        object = bucket.objects.build(key(folder, file))
+        object.content_type = mime_type(file)
+        object.content = File.read(file)
+        object.save
       end
     end
 
     def files(folder)
       Dir[File.join(folder, '**', '{*,.*}')].select { |f| File.file?(f) }
+    end
+
+    def key(folder, file)
+      file.sub(folder, '').sub(/^[\/\\]/, '')
+    end
+
+    def mime_type(file)
+      MIME::Types.type_for(File.extname(file)).first.to_s
     end
   end
 end

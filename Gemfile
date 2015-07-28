@@ -6,6 +6,7 @@ gem 'mongo'
 gem 'attire', '3.0.1'
 gem 'git'
 gem 's3'
+gem 'mime-types'
 
 group :test do
   gem 'rspec'

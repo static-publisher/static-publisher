@@ -9,8 +9,8 @@ describe S3Publisher do
 
   after { folders.clean_up }
 
-  def files(service)
-    service.buckets.find('my-bucket').objects.map(&:key)
+  def objects(service)
+    service.buckets.find('my-bucket').objects
   end
 
   def touch_compiled(*args)
@@ -22,19 +22,27 @@ describe S3Publisher do
   it 'publishes compiled folder to s3 bucket' do
     touch_compiled('lilly.txt')
     service = S3Publisher.publish(opts, folders)
-    expect(files(service)).to eql(['lilly.txt'])
+    expect(objects(service).map(&:key)).to eql(['lilly.txt'])
   end
 
   it 'overwrites previous publish' do
     touch_compiled('cola.txt')
     service = S3Publisher.publish(opts, folders)
-    expect(files(service)).to eql(['cola.txt'])
+    expect(objects(service).map(&:key)).to eql(['cola.txt'])
   end
 
   it 'publishes subdirectories' do
     touch_compiled('lib', 'lola.txt')
     service = S3Publisher.publish(opts, folders)
-    expect(files(service)).to eql(['lib/lola.txt'])
+    expect(objects(service).map(&:key)).to eql(['lib/lola.txt'])
+  end
+
+  it 'uses correct content-type' do
+    skip 'fakes3 does not provide content-type support'
+    touch_compiled('george.txt')
+    touch_compiled('gary.html')
+    service = S3Publisher.publish(opts, folders)
+    expect(objects(service).map(&:content_type)).to eql(['text/plain', 'text/html'])
   end
 
   it 'ignores if s3 opts not given' do

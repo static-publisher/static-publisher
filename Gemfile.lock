@@ -55,6 +55,7 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     mercenary (0.3.5)
+    mime-types (2.6.1)
     mongo (2.0.6)
       bson (~> 3.0)
     parslet (1.5.0)
@@ -113,6 +114,7 @@ DEPENDENCIES
   fakes3
   git
   jekyll
+  mime-types
   mongo
   rake
   rspec
