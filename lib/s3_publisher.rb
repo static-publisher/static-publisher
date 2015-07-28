@@ -34,7 +34,7 @@ module S3Publisher
     end
 
     def files(folder)
-      Dir[File.join(folder, '*', '{*,.*}')].select { |f| File.file?(f) }
+      Dir[File.join(folder, '**', '{*,.*}')].select { |f| File.file?(f) }
     end
   end
 end
