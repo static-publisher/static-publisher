@@ -15,4 +15,4 @@ group :test do
 end
 
 # Generators
-gem 'jekyll'
+gem 'jekyll', '3.0.0.pre.beta8'
