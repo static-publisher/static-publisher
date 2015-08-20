@@ -15,4 +15,7 @@ group :test do
 end
 
 # Generators
-gem 'jekyll', '3.0.0.pre.beta8'
+gem 'jekyll', git: 'https://github.com/jekyll/jekyll'
+gem 'jekyll-paginate'
+gem 'redcarpet'
+
