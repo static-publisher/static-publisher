@@ -27,7 +27,17 @@
                 - 'sequences[].s3.access_key_id'
                 - 'sequences[].s3.secret_access_key'
                 - 'sequences[].s3.bucket'
-                - 'sequences[].s3.region'
+                - key: 'sequences[].s3.region'
+                  titleMap:
+                    '': US Standard (N. Virginia)
+                    us-west-1: US West (Oregon)
+                    us-west-2: US West (N. California)
+                    EU: EU (Ireland)
+                    eu-central-1: EU (Frankfurt)
+                    ap-southeast-1: Asia Pacific (Singapore)
+                    ap-northeast-1: Asia Pacific (Sydney)
+                    ap-southeast-2: Asia Pacific (Tokyo)
+                    sa-east-1: South America (Sao Paulo)
             - type: fieldset
               title: Git
               expandable: true
