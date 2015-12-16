@@ -8,7 +8,7 @@ module S3Publisher
       service = S3::Service.new(symbolize_keys(opts))
       bucket = find_or_create_bucket(service, opts['bucket'], opts['region'])
       bucket.objects.destroy_all
-      upload_files(bucket, folders[:compiled])
+      upload_files(bucket, folders[:compiled], opts['cache_control'])
       service
     end
 
@@ -27,11 +27,12 @@ module S3Publisher
         service.buckets.build(name).tap { |b| b.save(location: region) }
     end
 
-    def upload_files(bucket, folder)
+    def upload_files(bucket, folder, cache_control)
       files(folder).each do |file|
         object = bucket.objects.build(key(folder, file))
         object.content_type = mime_type(file)
         object.content = File.read(file)
+        object.cache_control = cache_control
         object.save
       end
     end

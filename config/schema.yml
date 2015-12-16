@@ -12,7 +12,6 @@ sequences:
       src_branch:
         type: string
         title: Git Branch
-        default: master
       gen_type:
         type: string
         title: Type
@@ -42,10 +41,12 @@ sequences:
               - ap-northeast-1
               - ap-southeast-2
               - sa-east-1
+          cache_control:
+            type: string
+            title: Cache Control
       dest_repo:
         type: string
         title: Repository
       dest_branch:
         type: string
         title: Branch
-        default: gh_pages

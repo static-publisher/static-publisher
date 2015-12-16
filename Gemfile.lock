@@ -22,8 +22,10 @@ GEM
       builder
       thor
     fast-stemmer (1.0.2)
+    ffi (1.9.8-x64-mingw32)
     ffi (1.9.8-x86-mingw32)
     git (1.2.9.1)
+    hitimes (1.2.2)
     hitimes (1.2.2-x86-mingw32)
     jekyll (2.5.3)
       classifier-reborn (~> 2.0)
@@ -107,6 +109,7 @@ GEM
     yajl-ruby (1.2.1)
 
 PLATFORMS
+  x64-mingw32
   x86-mingw32
 
 DEPENDENCIES
@@ -121,3 +124,6 @@ DEPENDENCIES
   s3
   sinatra
   thin
+
+BUNDLED WITH
+   1.10.6
