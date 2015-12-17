@@ -11,4 +11,5 @@
 .tab:hover, .icon-remove:hover { cursor: pointer; }
 label { cursor: inherit; }
 .expandable legend { cursor: pointer; }
+.expandable legend:after { content: "+"; float: right; }
 .jsonform select, .jsonform input[type='text'] { width: 95%; }
