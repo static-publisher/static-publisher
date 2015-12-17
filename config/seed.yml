@@ -1,3 +1,5 @@
 sequences:
   - src_branch: master
+    s3:
+      cache_control: "max-age=3600"
     dest_branch: gh_pages

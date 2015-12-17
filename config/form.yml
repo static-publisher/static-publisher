@@ -38,6 +38,7 @@
                     ap-northeast-1: Asia Pacific (Sydney)
                     ap-southeast-2: Asia Pacific (Tokyo)
                     sa-east-1: South America (Sao Paulo)
+                - 'sequences[].s3.cache_control'
             - type: fieldset
               title: Git
               expandable: true
