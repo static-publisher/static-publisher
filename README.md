@@ -10,7 +10,7 @@ The easiest way to deploy is to use this "deploy to heroku" button:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-For other platforms, Static Publisher is a [sinatra](http://www.sinatrarb.com/) app, so instructions for deploying a sinatra app on your chosen platform should work. It also requires a [mongodb](https://www.mongodb.org/) database, with the environment variable `MONGOLAB_URI` set to the database's url.
+For other platforms, Static Publisher is a [sinatra](http://www.sinatrarb.com/) app, so instructions for deploying a sinatra app on your chosen platform should work. It also requires a [mongodb](https://www.mongodb.org/) database, with the environment variable `MONGODB_URI` set to the database's url.
 
 ## Usage
 
