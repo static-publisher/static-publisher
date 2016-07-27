@@ -8,7 +8,7 @@ require_relative 'lib/admin/config_files'
 helpers AuthHelpers
 
 configure do
-  set :db, SimpleDatabase.new(ENV['MONGOLAB_URI'])
+  set :db, SimpleDatabase.new(ENV['MONGODB_URI'])
   settings.db.create_if_empty(:user, name: 'admin', password: 'admin')
   settings.db.create_if_empty(:config, ConfigFiles.seed)
   set :schema, ConfigFiles.schema.to_json
