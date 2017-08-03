@@ -17,6 +17,10 @@ configure do
   `git config --global user.email "static-publisher@example.com"` if `git config user.email`.empty?
 end
 
+get '/' do
+  redirect '/admin'
+end
+
 get '/admin' do
   protected!
   erb :admin
